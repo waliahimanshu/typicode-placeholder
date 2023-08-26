@@ -12,7 +12,6 @@ coroutines = "1.6.4"
 hilt = "2.46"
 junit = "4.13.2"
 kotlin = "1.8.20"
-ksp = "1.8.20-1.0.11"
 retrofit = "2.9.0"
 moshi = "1.14.0"
 androidxFragment = "1.5.7"
@@ -62,5 +61,5 @@ android-test = { id = "com.android.test", version.ref = "androidGradlePlugin" }
 hilt-gradle = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 pure-kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "androidxNavigation" }
