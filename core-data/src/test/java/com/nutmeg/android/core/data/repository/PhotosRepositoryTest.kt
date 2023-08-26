@@ -20,18 +20,7 @@ import org.mockito.kotlin.whenever
 internal class PhotosRepositoryTest {
 
     private val mockService: JsonPlaceholderService = mock()
-
-    private val testDispatcher = UnconfinedTestDispatcher()
     private val fixture = KFixture()
-
-    fun setUp() {
-        Dispatchers.setMain(testDispatcher)
-    }
-
-    @After
-    fun tearDown() {
-        Dispatchers.resetMain()
-    }
 
     @Test
     fun `When getPhotoByAlbumId is called Then map first photo DTO to domain`() = runTest {

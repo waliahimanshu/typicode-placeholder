@@ -20,19 +20,7 @@ import org.mockito.kotlin.whenever
 internal class AlbumsRepositoryTest {
 
     private val mockService: JsonPlaceholderService = mock()
-    private val testDispatcher = StandardTestDispatcher()
-
     private val fixture = KFixture()
-
-    @Before
-    fun setUp() {
-        Dispatchers.setMain(testDispatcher)
-    }
-
-    @After
-    fun tearDown() {
-        Dispatchers.resetMain()
-    }
 
     @Test
     fun `When getAlbums is called Then album DTO is mapped to domain as expected `() = runTest {
