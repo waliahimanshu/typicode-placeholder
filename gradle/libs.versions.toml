@@ -1,0 +1,66 @@
+[versions]
+androidGradlePlugin = "8.0.1"
+androidxActivity = "1.7.1"
+androidxCore = "1.10.1"
+androidxHilt = "1.0.0"
+androidxLifecycle = "2.6.1"
+androidxNavigation = "2.6.0"
+androidxTestCore = "1.5.0"
+androidxTestExt = "1.1.5"
+androidxTestRunner = "1.5.2"
+coroutines = "1.6.4"
+hilt = "2.46"
+junit = "4.13.2"
+kotlin = "1.8.20"
+ksp = "1.8.20-1.0.11"
+retrofit = "2.9.0"
+moshi = "1.14.0"
+androidxFragment = "1.5.7"
+androidxAppcompat = "1.6.1"
+material3 = "1.6.0"
+kfixture = "0.2.0"
+mockito = "4.0.0"
+logInterceptor = "4.10.0"
+glide = "4.16.0"
+paging = "3.1.1"
+
+[libraries]
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidxCore" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
+androidx-test-core = { module = "androidx.test:core", version.ref = "androidxTestCore" }
+androidx-test-ext-junit = { module = "androidx.test.ext:junit", version.ref = "androidxTestExt" }
+androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidxTestRunner" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
+hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "hilt" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
+hilt-gradle-plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt" }
+junit = { module = "junit:junit", version.ref = "junit" }
+kfixture = { module = "com.flextrade.jfixture:kfixture", version.ref = "kfixture" }
+mockito = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockito" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+
+square-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+square-okhttp-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "logInterceptor" }
+square-retrofit-converter = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
+square-moshi = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }
+
+androidx-navigation = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidxNavigation" }
+androidx-navigation-ui = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "androidxNavigation" }
+androidx-fragment = { module = "androidx.fragment:fragment-ktx", version.ref = "androidxFragment" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidxAppcompat" }
+material = { module = "com.google.android.material:material", version.ref = "material3" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+paging = { module = "androidx.paging:paging-runtime", version.ref = "paging" }
+
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+android-test = { id = "com.android.test", version.ref = "androidGradlePlugin" }
+hilt-gradle = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+pure-kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "androidxNavigation" }
