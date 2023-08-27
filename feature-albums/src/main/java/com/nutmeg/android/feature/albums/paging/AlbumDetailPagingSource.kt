@@ -4,10 +4,12 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.nutmeg.android.domain.usecase.GetAlbumAndPhotoUseCase
 import com.nutmeg.android.model.AlbumDetail
+import dagger.hilt.android.scopes.ViewModelScoped
+import javax.inject.Inject
 
 const val STARTING_KEY = 0
 
-class AlbumDetailPagingSource(
+class AlbumDetailPagingSource @Inject constructor(
     private val albumAndPhotoUseCase: GetAlbumAndPhotoUseCase
 ) : PagingSource<Int, AlbumDetail>() {
 
