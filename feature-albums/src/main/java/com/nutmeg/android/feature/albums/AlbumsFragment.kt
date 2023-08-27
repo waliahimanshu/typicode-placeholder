@@ -39,9 +39,44 @@ class AlbumsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupRecyclerView()
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.albumItems.collectLatest {
+                    albumsAdapter?.submitData(it)
+                }
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.albumsUIState.collectLatest(::onUiState)
+            }
+        }
     }
 
+    private fun setupRecyclerView() {
+        binding.albumsRecyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            albumsAdapter = AlbumsAdapter()
+            adapter = albumsAdapter?.withLoadStateHeaderAndFooter(
+                header = AlbumLoadingStateAdapter { albumsAdapter?.retry() },
+                footer = AlbumLoadingStateAdapter { albumsAdapter?.retry() }
+            )
+        }
+    }
 
+    private fun onUiState(uiStates: AlbumsUIStates) {
+        when (uiStates) {
+            is AlbumsUIStates.Error -> {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.generic_error_message),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
