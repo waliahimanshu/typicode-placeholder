@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="albums">Albums</string>
+    <string name="image_placeholder">image placeholder</string>
+    <string name="generic_error_message">"An error has occurred "</string>
+    <string name="retry">Retry</string>
+</resources>
