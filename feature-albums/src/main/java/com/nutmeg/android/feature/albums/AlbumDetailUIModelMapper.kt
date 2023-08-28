@@ -8,7 +8,6 @@ import com.nutmeg.android.model.User
 import dagger.hilt.android.scopes.ViewModelScoped
 import javax.inject.Inject
 
-@ViewModelScoped
 class AlbumDetailUIModelMapper @Inject constructor() {
 
     fun map(

@@ -21,7 +21,7 @@ internal class GetAlbumAndPhotoUseCaseTest {
     private val fixture = KFixture()
 
     @Test
-    fun `When album and photo repo are called successfully Then map result to album detail`() = runTest {
+    fun `When album & photo repo are called successfully Then map result to album detail`() = runTest {
         val start = 1
         val limit = 5
         val albums = List(3) {
