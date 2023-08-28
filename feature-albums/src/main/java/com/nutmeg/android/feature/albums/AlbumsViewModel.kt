@@ -28,12 +28,13 @@ class AlbumsViewModel @Inject constructor(
                 uiModelMapper.map(pageData, users)
             }
             .catch {
-                _albumsUIState.tryEmit(AlbumsUIStates.Error(it.message))
+                // log exception
+                _albumsUIState.emit(AlbumsUIStates.Error)
             }
             .cachedIn(viewModelScope)
 
 }
 
 sealed interface AlbumsUIStates {
-    data class Error(val message: String?) : AlbumsUIStates
+    object Error : AlbumsUIStates
 }

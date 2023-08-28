@@ -68,7 +68,7 @@ class AlbumsFragment : Fragment() {
 
     private fun onUiState(uiStates: AlbumsUIStates) {
         when (uiStates) {
-            is AlbumsUIStates.Error -> {
+            AlbumsUIStates.Error -> {
                 Toast.makeText(
                     requireContext(),
                     getString(R.string.generic_error_message),
