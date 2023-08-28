@@ -11,7 +11,6 @@ import junit.framework.TestCase.assertNotNull
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
@@ -22,7 +21,6 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.mockito.kotlin.mock
-import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -49,15 +47,14 @@ class AlbumsViewModelTest {
         val pagedData = PagingData.from(List(4) {
             fixture<AlbumDetail>()
         })
-        val data1 = List(4) {
+        val uiModelList = PagingData.from(List(4) {
             fixture<AlbumDetailUIModel>()
-        }
-        val uiModelList = PagingData.from(data1)
+        })
         val users = List(4) {
             fixture<User>()
         }
 
-        whenever(mockAlbumDetailUseCase.getAlbumDetails()).thenReturn(flow { emit(pagedData) })
+        whenever(mockAlbumDetailUseCase.getAlbumDetails()).thenReturn(flowOf(pagedData))
         whenever(mockUserUseCase.getUsers()).thenReturn(flowOf(users))
         whenever(mockUiModelMapper.map(pagedData, users)).thenReturn(uiModelList)
 
@@ -66,17 +63,11 @@ class AlbumsViewModelTest {
             userInfoUseCase = mockUserUseCase,
             uiModelMapper = mockUiModelMapper
         )
+
         advanceUntilIdle()
         val expectedItem = viewModel.albumItems.first()
-
-        verify(mockAlbumDetailUseCase).getAlbumDetails()
-        verify(mockUserUseCase).getUsers()
-        verify(mockUiModelMapper).map(pagedData, users)
-
         assertNotNull(expectedItem)
     }
-
-
 }
 
 

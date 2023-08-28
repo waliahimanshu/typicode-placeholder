@@ -4,7 +4,6 @@ import androidx.paging.PagingSource
 import com.flextrade.kfixture.KFixture
 import com.nutmeg.android.domain.usecase.GetAlbumAndPhotoUseCase
 import com.nutmeg.android.model.AlbumDetail
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -12,7 +11,6 @@ import org.mockito.kotlin.mock
 import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
 
-@OptIn(ExperimentalCoroutinesApi::class)
 class AlbumDetailPagingSourceTest {
 
     private val mockUseCase: GetAlbumAndPhotoUseCase = mock()
@@ -54,7 +52,7 @@ class AlbumDetailPagingSourceTest {
         }
 
     @Test
-    fun `When PagingSource load is called When error occures Then use-case returns expected data`() =
+    fun `When PagingSource load is called When error occurs Then use-case returns expected data`() =
         runTest {
             val exception = RuntimeException()
             whenever(mockUseCase.invoke(params.key, params.loadSize)).thenThrow(exception)
