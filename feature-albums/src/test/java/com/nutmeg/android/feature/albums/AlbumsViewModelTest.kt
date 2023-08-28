@@ -7,7 +7,7 @@ import com.nutmeg.android.feature.albums.model.AlbumDetailUIModel
 import com.nutmeg.android.feature.albums.paging.AlbumDetailsUseCase
 import com.nutmeg.android.model.AlbumDetail
 import com.nutmeg.android.model.User
-import junit.framework.TestCase.assertNotNull
+import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
@@ -43,33 +43,41 @@ class AlbumsViewModelTest {
     }
 
     @Test
-    fun getAlbumsUIState() = runTest {
-        val pagedData = PagingData.from(List(4) {
-            fixture<AlbumDetail>()
-        })
-        val uiModelList = PagingData.from(List(4) {
-            fixture<AlbumDetailUIModel>()
-        })
-        val users = List(4) {
-            fixture<User>()
+    fun `Given pagedData and userList flow emits Then transform the data to paged data UI model`() =
+        runTest {
+            val pagedData = PagingData.from(List(4) {
+                fixture<AlbumDetail>()
+            })
+            val uiModelList = List(4) {
+                fixture<AlbumDetailUIModel>()
+            }
+            val pagedUiModel = PagingData.from(uiModelList)
+            val users = List(4) {
+                fixture<User>()
+            }
+
+            whenever(mockAlbumDetailUseCase.getAlbumDetails()).thenReturn(flowOf(pagedData))
+            whenever(mockUserUseCase.getUsers()).thenReturn(flowOf(users))
+            whenever(mockUiModelMapper.map(pagedData, users)).thenReturn(pagedUiModel)
+
+            val viewModel = AlbumsViewModel(
+                albumDetailsUseCase = mockAlbumDetailUseCase,
+                userInfoUseCase = mockUserUseCase,
+                uiModelMapper = mockUiModelMapper
+            )
+
+            advanceUntilIdle()
+            val expectedItem = viewModel.albumItems.first()
+            val pagingList = getDataFromPagedData(expectedItem)
+
+            assertEquals(pagingList.size, uiModelList.size)
+
+            uiModelList.forEachIndexed { index, uiModel ->
+                assertEquals(pagingList[index].albumId, uiModel.albumId)
+                assertEquals(pagingList[index].albumTitle, uiModel.albumTitle)
+                assertEquals(pagingList[index].photoTitle, uiModel.photoTitle)
+                assertEquals(pagingList[index].thumbnailUrl, uiModel.thumbnailUrl)
+                assertEquals(pagingList[index].userName, uiModel.userName)
+            }
         }
-
-        whenever(mockAlbumDetailUseCase.getAlbumDetails()).thenReturn(flowOf(pagedData))
-        whenever(mockUserUseCase.getUsers()).thenReturn(flowOf(users))
-        whenever(mockUiModelMapper.map(pagedData, users)).thenReturn(uiModelList)
-
-        val viewModel = AlbumsViewModel(
-            albumDetailsUseCase = mockAlbumDetailUseCase,
-            userInfoUseCase = mockUserUseCase,
-            uiModelMapper = mockUiModelMapper
-        )
-
-        advanceUntilIdle()
-        val expectedItem = viewModel.albumItems.first()
-        assertNotNull(expectedItem)
-    }
 }
-
-
-
-
