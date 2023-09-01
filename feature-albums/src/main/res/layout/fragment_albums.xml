@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nutmeg.android.feature.albums.AlbumsFragment">
+    tools:context="com.waliahimanshu.android.feature.albums.AlbumsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/albumsRecyclerView"

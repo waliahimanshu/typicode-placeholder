@@ -1,4 +1,4 @@
-package com.nutmeg.android.model
+package com.waliahimanshu.android.model
 
 data class AlbumPhotos(
     val id: Int,

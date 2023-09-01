@@ -1,5 +1,3 @@
-# The Nutmeg test app
-
 ## Setup
 
 The project requires JDK 17, which can be set

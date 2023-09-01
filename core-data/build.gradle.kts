@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "com.nutmeg.android.core.data"
+    namespace = "com.waliahimanshu.android.core.data"
     compileSdk = 33
 
     defaultConfig {

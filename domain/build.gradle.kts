@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.nutmeg.android.domain"
+    namespace = "com.waliahimanshu.android.domain"
     compileSdk = 33
 
     defaultConfig {

@@ -14,7 +14,7 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Nutmeg test app"
+rootProject.name = "Json Placeholder app"
 
 include(":app")
 include(":core-data")

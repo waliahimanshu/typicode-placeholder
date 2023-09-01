@@ -3,15 +3,14 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.hilt.gradle)
     alias(libs.plugins.kotlin.kapt)
-//    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
-    namespace = "com.nutmeg.android"
+    namespace = "com.waliahimanshu.android"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.nutmeg.android"
+        applicationId = "com.waliahimanshu.android"
         minSdk = 21
         targetSdk = 33
         versionCode = 1

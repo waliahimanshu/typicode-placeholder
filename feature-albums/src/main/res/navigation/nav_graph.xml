@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/albumsFragment"
-        android:name="com.nutmeg.android.feature.albums.AlbumsFragment"
+        android:name="com.waliahimanshu.android.feature.albums.AlbumsFragment"
         android:label="@string/albums"
         tools:layout="@layout/fragment_albums" />
 </navigation>

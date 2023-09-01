@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.nutmeg.android.feature.photos"
+    namespace = "com.waliahimanshu.android.feature.photos"
     compileSdk = 33
 
     defaultConfig {
