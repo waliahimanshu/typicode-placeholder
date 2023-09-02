@@ -12,7 +12,7 @@ class AlbumsDetailViewHolder(private val binding: AlbumListItemsBinding) :
 
     fun bind(item: AlbumDetailUIModel) {
         binding.composeView.setContent {
-            AppTheme() {
+            AppTheme {
                 AlbumItem(item = item)
             }
         }

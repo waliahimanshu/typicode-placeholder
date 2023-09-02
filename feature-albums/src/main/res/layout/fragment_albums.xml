@@ -5,13 +5,12 @@
     android:layout_height="match_parent"
     tools:context="com.waliahimanshu.android.feature.albums.AlbumsFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/albumsRecyclerView"
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/albumsComposeView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:itemCount="10"
-        tools:listitem="@layout/album_list_items" />
+      />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
