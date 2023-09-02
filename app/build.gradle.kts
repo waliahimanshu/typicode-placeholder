@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace = "com.waliahimanshu.android"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.waliahimanshu.android"
         minSdk = 21
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -62,7 +62,7 @@ dependencies {
     implementation(libs.androidx.navigation)
     implementation(libs.androidx.navigation.ui)
     implementation(libs.material)
-
+    implementation(libs.androidx.compose.paging)
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
 }
