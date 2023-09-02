@@ -10,8 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.waliahimanshu.android.feature.albums.paging.loading.AlbumLoadingStateAdapter
+import androidx.paging.compose.collectAsLazyPagingItems
+import com.waliahimanshu.android.feature.albums.ui.theme.AppTheme
 import com.waliahimanshu.android.feature.photos.R
 import com.waliahimanshu.android.feature.photos.databinding.FragmentAlbumsBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,11 +39,10 @@ class AlbumsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupRecyclerView()
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.albumItems.collectLatest {
-                    albumsAdapter?.submitData(it)
+                    setComposeListView()
                 }
             }
         }
@@ -55,14 +54,13 @@ class AlbumsFragment : Fragment() {
         }
     }
 
-    private fun setupRecyclerView() {
-        binding.albumsRecyclerView.apply {
-            layoutManager = LinearLayoutManager(requireContext())
-            albumsAdapter = AlbumsAdapter()
-            adapter = albumsAdapter?.withLoadStateHeaderAndFooter(
-                header = AlbumLoadingStateAdapter { albumsAdapter?.retry() },
-                footer = AlbumLoadingStateAdapter { albumsAdapter?.retry() }
-            )
+    private fun setComposeListView() {
+        binding.albumsComposeView.setContent {
+            val pagingItems =
+                viewModel.albumItems.collectAsLazyPagingItems()
+            AppTheme {
+                AlbumList(lazyPagingItems = pagingItems)
+            }
         }
     }
 
