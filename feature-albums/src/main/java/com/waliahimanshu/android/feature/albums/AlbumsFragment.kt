@@ -11,6 +11,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.waliahimanshu.android.feature.albums.ui.theme.AlbumList
 import com.waliahimanshu.android.feature.albums.ui.theme.AppTheme
 import com.waliahimanshu.android.feature.photos.R
 import com.waliahimanshu.android.feature.photos.databinding.FragmentAlbumsBinding
