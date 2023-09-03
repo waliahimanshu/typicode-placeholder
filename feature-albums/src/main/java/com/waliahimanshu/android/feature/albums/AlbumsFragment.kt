@@ -20,7 +20,6 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class AlbumsFragment : Fragment() {
-    private var albumsAdapter: AlbumsAdapter? = null
     private var _binding: FragmentAlbumsBinding? = null
     private val binding get() = _binding!!
 
@@ -79,6 +78,5 @@ class AlbumsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        albumsAdapter = null
     }
 }
