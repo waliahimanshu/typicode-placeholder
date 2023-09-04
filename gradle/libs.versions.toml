@@ -57,6 +57,7 @@ material = { module = "com.google.android.material:material", version.ref = "mat
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 paging = { module = "androidx.paging:paging-runtime", version.ref = "paging" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "androidxHilt" }
 
 androidx-compose-paging = { group = "androidx.paging", name = "paging-compose", version.ref = "paginationCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
@@ -66,6 +67,8 @@ androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
+androidx-compose-navigation = { group = "androidx.navigation", name = "navigation-compose" }
+androidx-compose-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
