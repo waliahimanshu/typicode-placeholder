@@ -12,7 +12,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.waliahimanshu.android.feature.albums.AlbumsUIStates
 import com.waliahimanshu.android.feature.albums.AlbumsViewModel
-import com.waliahimanshu.android.feature.albums.ui.theme.AlbumList
+import com.waliahimanshu.android.feature.albums.ui.AlbumList
 import com.waliahimanshu.android.feature.photos.R
 
 

@@ -1,4 +1,4 @@
-package com.waliahimanshu.android.feature.albums.ui.theme.loading
+package com.waliahimanshu.android.feature.albums.ui.loading
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
