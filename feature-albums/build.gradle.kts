@@ -9,7 +9,7 @@ plugins {
 
 android {
     namespace = "com.waliahimanshu.android.feature.photos"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 21
@@ -45,7 +45,7 @@ dependencies {
     implementation(libs.material)
 
     implementation(libs.hilt.android)
-    implementation(libs.glide)
+    implementation(libs.coil.compose)
     implementation(libs.paging)
     kapt(libs.hilt.compiler)
 
@@ -58,6 +58,7 @@ dependencies {
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)
     implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.paging)
