@@ -1,4 +1,4 @@
-package com.waliahimanshu.android.feature.albums.ui.theme.loading
+package com.waliahimanshu.android.feature.albums.ui.loading
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -48,7 +48,6 @@ fun LoadingItem() {
             CircularProgressIndicator(
                 modifier = Modifier.size(68.dp),
                 strokeWidth = 4.dp,
-                progress = 1f
             )
         }
     }

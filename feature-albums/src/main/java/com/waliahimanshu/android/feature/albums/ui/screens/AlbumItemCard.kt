@@ -1,11 +1,10 @@
-package com.waliahimanshu.android.feature.albums.ui.theme
+package com.waliahimanshu.android.feature.albums.ui.screens
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -21,44 +20,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.paging.LoadState
-import androidx.paging.compose.LazyPagingItems
-import androidx.paging.compose.itemKey
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.waliahimanshu.android.feature.albums.model.AlbumDetailUIModel
-import com.waliahimanshu.android.feature.albums.ui.theme.loading.ErrorItem
-import com.waliahimanshu.android.feature.albums.ui.theme.loading.LoadingItem
+import com.waliahimanshu.android.feature.albums.ui.theme.AppTheme
 import com.waliahimanshu.android.feature.photos.R
 
 @Composable
-fun AlbumList(lazyPagingItems: LazyPagingItems<AlbumDetailUIModel>) { // inject viewmodel here
-
-    LazyColumn {
-        items(
-            count = lazyPagingItems.itemCount,
-            key = lazyPagingItems.itemKey { it.albumId }) { index ->
-            val item = checkNotNull(lazyPagingItems[index])
-            AlbumItem(item = item)
-        }
-
-        when (lazyPagingItems.loadState.append) {
-            is LoadState.Error -> {
-                item {
-                    ErrorItem(
-                        message = stringResource(id = R.string.generic_error_message),
-                        retry = { lazyPagingItems.refresh() },
-                    )
-                }
-            }
-            LoadState.Loading -> item { LoadingItem() }
-            is LoadState.NotLoading -> Unit
-        }
-    }
-}
-
-@Composable
-fun AlbumItem(item: AlbumDetailUIModel) {
+fun AlbumItemCard(item: AlbumDetailUIModel) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -90,14 +59,22 @@ fun AlbumItem(item: AlbumDetailUIModel) {
                     .padding(start = 16.dp)
                     .align(Alignment.CenterVertically)
             ) {
-                Text(text = item.photoTitle, maxLines = 3, overflow = TextOverflow.Ellipsis)
+                Text(
+                    text = item.photoTitle,
+                    maxLines = 3,
+                    overflow = TextOverflow.Ellipsis
+                )
                 Text(
                     text = item.albumTitle,
                     maxLines = 3,
                     overflow = TextOverflow.Ellipsis,
                     fontWeight = FontWeight.Bold
                 )
-                Text(text = item.userName, maxLines = 2, overflow = TextOverflow.Ellipsis)
+                Text(
+                    text = item.userName,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis
+                )
             }
         }
     }
@@ -107,7 +84,7 @@ fun AlbumItem(item: AlbumDetailUIModel) {
 @Composable
 fun AlbumItemCardPreview() {
     AppTheme {
-        AlbumItem(
+        AlbumItemCard(
             AlbumDetailUIModel(
                 albumId = 1,
                 albumTitle = "non esse culpa molestiae omnis sed optio optimonsfhkefjh",

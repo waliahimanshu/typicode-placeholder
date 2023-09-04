@@ -20,7 +20,7 @@ class AlbumsViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _albumsUIState = MutableSharedFlow<AlbumsUIStates>()
-    val albumsUIState = _albumsUIState.asSharedFlow()
+    val albumsUIState = _albumsUIState.asSharedFlow() // todo handle error
 
     val albumItems =
         albumDetailsUseCase.getAlbumDetails()
