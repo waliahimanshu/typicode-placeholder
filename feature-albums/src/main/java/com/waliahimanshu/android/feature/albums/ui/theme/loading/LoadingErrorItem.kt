@@ -48,7 +48,6 @@ fun LoadingItem() {
             CircularProgressIndicator(
                 modifier = Modifier.size(68.dp),
                 strokeWidth = 4.dp,
-                progress = 1f
             )
         }
     }
