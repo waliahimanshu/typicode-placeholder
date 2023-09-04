@@ -22,17 +22,20 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
-import androidx.paging.compose.LazyPagingItems
+import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import com.waliahimanshu.android.feature.albums.AlbumsViewModel
 import com.waliahimanshu.android.feature.albums.model.AlbumDetailUIModel
 import com.waliahimanshu.android.feature.albums.ui.theme.loading.ErrorItem
 import com.waliahimanshu.android.feature.albums.ui.theme.loading.LoadingItem
 import com.waliahimanshu.android.feature.photos.R
 
 @Composable
-fun AlbumList(lazyPagingItems: LazyPagingItems<AlbumDetailUIModel>) { // inject viewmodel here
+fun AlbumList(viewModel: AlbumsViewModel) {
+
+    val lazyPagingItems = viewModel.albumItems.collectAsLazyPagingItems()
 
     LazyColumn {
         items(
@@ -51,6 +54,7 @@ fun AlbumList(lazyPagingItems: LazyPagingItems<AlbumDetailUIModel>) { // inject 
                     )
                 }
             }
+
             LoadState.Loading -> item { LoadingItem() }
             is LoadState.NotLoading -> Unit
         }
