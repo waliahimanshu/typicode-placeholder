@@ -11,6 +11,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.waliahimanshu.android.feature.albums.ui.theme.AlbumList
 import com.waliahimanshu.android.feature.albums.ui.theme.AppTheme
 import com.waliahimanshu.android.feature.photos.R
 import com.waliahimanshu.android.feature.photos.databinding.FragmentAlbumsBinding
@@ -20,7 +21,6 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class AlbumsFragment : Fragment() {
-    private var albumsAdapter: AlbumsAdapter? = null
     private var _binding: FragmentAlbumsBinding? = null
     private val binding get() = _binding!!
 
@@ -79,6 +79,5 @@ class AlbumsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        albumsAdapter = null
     }
 }
