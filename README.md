@@ -25,11 +25,16 @@ and `photo image` from above endpoints.
 Each unique album id has 50 photos, the app show the photo title and image url of first photo of
 each album in the list.
 
-| Albums list success                 | Album page error/retry state            | Failed to get error                | RTL                         |
-|-------------------------------------|-----------------------------------------|------------------------------------|-----------------------------|
-| ![](images/albums_success_page.png) | ![](images/paged_error_retry_state.png) | ![](images/failed_to_get_user.png) | ![](images/success_rtl.png) |
+| Albums list success          | Album page error/retry state            | Failed to get error                | RTL                               |
+|------------------------------|-----------------------------------------|------------------------------------|-----------------------------------|
+| ![](images/paged_succes.png) | ![](images/paged_error_retry_state.png) | ![](images/failed_to_get_user.png) | ![](images/paged_success_rtl.png) |
+
 
 ## Feature
+
+## Demo
+
+![](images/demo.gif)
 
 - This app shows list of `photo albums` - with album title, username, photo name and photo image.
 - The app only shows the first photo of each album.

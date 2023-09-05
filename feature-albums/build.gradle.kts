@@ -64,6 +64,7 @@ dependencies {
     implementation(libs.androidx.compose.paging)
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.compose.viewmodel)
+    implementation(libs.lifecycle.runtime.compose)
     implementation(libs.hilt.navigation.compose)
 
     testImplementation(libs.junit)
