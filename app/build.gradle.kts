@@ -61,14 +61,9 @@ dependencies {
     implementation(project(":model"))
     implementation(project(":feature-albums"))
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.navigation)
     implementation(libs.androidx.compose.navigation)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.navigation.ui)
-    implementation(libs.material)
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
 
