@@ -7,7 +7,9 @@ import com.waliahimanshu.android.domain.usecase.GetUserInfoUseCase
 import com.waliahimanshu.android.feature.albums.paging.AlbumDetailsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import javax.inject.Inject
@@ -20,7 +22,7 @@ class AlbumsViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _albumsUIState = MutableSharedFlow<AlbumsUIStates>()
-    val albumsUIState = _albumsUIState.asSharedFlow() // todo handle error
+    val albumsUIState = _albumsUIState.asSharedFlow()
 
     val albumItems =
         albumDetailsUseCase.getAlbumDetails()

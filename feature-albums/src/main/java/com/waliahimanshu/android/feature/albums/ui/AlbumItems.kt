@@ -7,9 +7,9 @@ import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
 import com.waliahimanshu.android.feature.albums.AlbumsViewModel
-import com.waliahimanshu.android.feature.albums.ui.screens.AlbumItemCard
 import com.waliahimanshu.android.feature.albums.ui.loading.ErrorItem
 import com.waliahimanshu.android.feature.albums.ui.loading.LoadingItem
+import com.waliahimanshu.android.feature.albums.ui.screens.AlbumItemCard
 import com.waliahimanshu.android.feature.photos.R
 
 @Composable
@@ -30,7 +30,7 @@ fun AlbumList(viewModel: AlbumsViewModel) {
                 item {
                     ErrorItem(
                         message = stringResource(id = R.string.generic_error_message),
-                        retry = { lazyPagingItems.refresh() },
+                        retry = { lazyPagingItems.retry()},
                     )
                 }
             }
