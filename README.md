@@ -30,6 +30,10 @@ each album in the list.
 
 
 ## Jetpack Compose support
+
+🗒️ Please see branch [android-view-system](https://github.com/waliahimanshu/typicode-placeholder/tree/android-view-system)
+for android xml based view implementation and `main` branch for compose implementaion.
+
 Since I am in process of gaining more hands-on experience of using compose  - I took the opportunity to migrate android view system 
 to compose - in more real app setting 
 
@@ -40,9 +44,9 @@ to compose - in more real app setting
 
 ## Feature
 
-## Demo
-
-![](images/demo.gif)
+| Demo  | 
+|------------------------------|
+| <img src="/images/demo.gif" width="250" height="550"/>|
 
 - This app shows list of `albums` - with album `title`, `username`, `photo name and url`.
 - The app only shows the first photo of each album.
