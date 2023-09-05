@@ -40,20 +40,9 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":model"))
 
-    implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.navigation)
-    implementation(libs.material)
-
     implementation(libs.hilt.android)
     implementation(libs.coil.compose)
-    implementation(libs.paging)
     kapt(libs.hilt.compiler)
-
-    androidTestImplementation(libs.hilt.android.testing)
-    kaptAndroidTest(libs.hilt.android.compiler)
-
-    testImplementation(libs.hilt.android.testing)
-    kaptTest(libs.hilt.android.compiler)
 
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)
@@ -67,6 +56,11 @@ dependencies {
     implementation(libs.lifecycle.runtime.compose)
     implementation(libs.hilt.navigation.compose)
 
+    androidTestImplementation(libs.hilt.android.testing)
+    kaptAndroidTest(libs.hilt.android.compiler)
+
+    testImplementation(libs.hilt.android.testing)
+    kaptTest(libs.hilt.android.compiler)
     testImplementation(libs.junit)
     testImplementation(libs.mockito)
     testImplementation(libs.kfixture)
