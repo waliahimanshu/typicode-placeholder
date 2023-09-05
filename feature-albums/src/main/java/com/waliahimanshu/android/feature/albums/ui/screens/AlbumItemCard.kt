@@ -34,7 +34,7 @@ fun AlbumItemCard(item: AlbumDetailUIModel) {
             .padding(16.dp),
         shape = RoundedCornerShape(4.dp),
         elevation = CardDefaults.cardElevation(
-            defaultElevation = 4.dp
+            defaultElevation = 2.dp
         )
     ) {
         Row(

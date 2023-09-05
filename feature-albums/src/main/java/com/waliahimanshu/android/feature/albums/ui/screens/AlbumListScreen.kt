@@ -1,9 +1,17 @@
 package com.waliahimanshu.android.feature.albums.ui.screens
 
+import android.content.Context
 import android.widget.Toast
 import android.widget.Toast.makeText
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
@@ -15,34 +23,53 @@ import com.waliahimanshu.android.feature.albums.AlbumsViewModel
 import com.waliahimanshu.android.feature.albums.ui.AlbumList
 import com.waliahimanshu.android.feature.photos.R
 
-
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AlbumListScreen(
     viewModel: AlbumsViewModel = hiltViewModel()
 ) {
-    Surface(modifier = Modifier.fillMaxSize()) {
-        AlbumList(viewModel)
-        AlbumUIState(viewModel)
-    }
-}
-
-@Composable
-private fun AlbumUIState(viewModel: AlbumsViewModel) {
     val context = LocalContext.current
-    val message = stringResource(id = R.string.generic_error_message)
 
     LaunchedEffect(Unit) {
-        viewModel.albumsUIState
-            .collect { uiStates ->
-                when (uiStates) {
-                    AlbumsUIStates.Error -> makeText(
-                        context,
-                        message,
-                        Toast.LENGTH_SHORT,
-                    ).show()
-                }
-            }
+        observeUIState(context, viewModel)
     }
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    titleContentColor = MaterialTheme.colorScheme.primary,
+                ),
+                title = { Text(stringResource(id = R.string.albums)) }
+            )
+        },
+    ) { innerPadding ->
+        Surface(
+            modifier = Modifier
+                .padding(innerPadding)
+                .fillMaxSize()
+        ) {
+            AlbumList(viewModel)
+        }
+    }
+
+}
+
+private suspend fun observeUIState(
+    context: Context,
+    viewModel: AlbumsViewModel
+) {
+
+    viewModel.albumsUIState
+        .collect { uiStates ->
+            when (uiStates) {
+                AlbumsUIStates.Error -> makeText(
+                    context,
+                    context.getString(R.string.generic_error_message),
+                    Toast.LENGTH_SHORT,
+                ).show()
+            }
+        }
 }
 
 
