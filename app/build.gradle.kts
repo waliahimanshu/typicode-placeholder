@@ -74,4 +74,6 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.compose.ui.tooling.preview)
 
+    lintChecks("com.slack.lint.compose:compose-lint-checks:1.2.0")
+
 }

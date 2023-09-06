@@ -26,6 +26,7 @@ import com.waliahimanshu.android.feature.photos.R
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AlbumListScreen(
+    modifier: Modifier = Modifier,
     viewModel: AlbumsViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
@@ -45,11 +46,11 @@ fun AlbumListScreen(
         },
     ) { innerPadding ->
         Surface(
-            modifier = Modifier
+            modifier = modifier
                 .padding(innerPadding)
                 .fillMaxSize()
         ) {
-            AlbumList(viewModel)
+            AlbumList(viewModel = viewModel)
         }
     }
 

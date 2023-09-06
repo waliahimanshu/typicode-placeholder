@@ -27,9 +27,9 @@ import com.waliahimanshu.android.feature.albums.ui.theme.AppTheme
 import com.waliahimanshu.android.feature.photos.R
 
 @Composable
-fun AlbumItemCard(item: AlbumDetailUIModel) {
+fun AlbumItemCard(item: AlbumDetailUIModel, modifier: Modifier = Modifier) {
     Card(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(16.dp),
         shape = RoundedCornerShape(4.dp),
@@ -85,7 +85,7 @@ fun AlbumItemCard(item: AlbumDetailUIModel) {
 fun AlbumItemCardPreview() {
     AppTheme {
         AlbumItemCard(
-            AlbumDetailUIModel(
+            item = AlbumDetailUIModel(
                 albumId = 1,
                 albumTitle = "non esse culpa molestiae omnis sed optio optimonsfhkefjh",
                 userName = "Kurtis Weissnatr",

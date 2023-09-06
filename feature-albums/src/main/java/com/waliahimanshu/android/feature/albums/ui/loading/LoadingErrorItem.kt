@@ -23,9 +23,9 @@ import com.waliahimanshu.android.feature.albums.ui.theme.AppTheme
 import com.waliahimanshu.android.feature.photos.R
 
 @Composable
-fun LoadingItem() {
+fun LoadingItem(modifier: Modifier = Modifier) {
     Card(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(16.dp),
         shape = RoundedCornerShape(4.dp),
@@ -48,9 +48,9 @@ fun LoadingItem() {
 }
 
 @Composable
-fun ErrorItem(message: String, retry: () -> Unit) {
+fun ErrorItem(message: String, modifier: Modifier = Modifier, retry: () -> Unit) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -84,7 +84,7 @@ fun PagingLoadingItemPreview() {
 fun PagingLoadingErrorItemPreview() {
     AppTheme {
         LazyColumn {
-            item { ErrorItem("An error has occurred") {} }
+            item { ErrorItem(message = "An error has occurred") {} }
         }
     }
 }

@@ -68,4 +68,6 @@ dependencies {
 
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.androidx.test.runner)
+    lintChecks("com.slack.lint.compose:compose-lint-checks:1.2.0")
+
 }

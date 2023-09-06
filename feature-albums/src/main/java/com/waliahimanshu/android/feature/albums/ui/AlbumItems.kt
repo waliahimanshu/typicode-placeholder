@@ -2,6 +2,7 @@ package com.waliahimanshu.android.feature.albums.ui
 
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
@@ -13,11 +14,11 @@ import com.waliahimanshu.android.feature.albums.ui.screens.AlbumItemCard
 import com.waliahimanshu.android.feature.photos.R
 
 @Composable
-fun AlbumList(viewModel: AlbumsViewModel) {
+fun AlbumList(viewModel: AlbumsViewModel, modifier: Modifier = Modifier) {
 
     val lazyPagingItems = viewModel.albumItems.collectAsLazyPagingItems()
 
-    LazyColumn {
+    LazyColumn(modifier = modifier) {
         items(
             count = lazyPagingItems.itemCount,
             key = lazyPagingItems.itemKey { it.albumId }) { index ->
@@ -30,7 +31,7 @@ fun AlbumList(viewModel: AlbumsViewModel) {
                 item {
                     ErrorItem(
                         message = stringResource(id = R.string.generic_error_message),
-                        retry = { lazyPagingItems.retry()},
+                        retry = { lazyPagingItems.retry() },
                     )
                 }
             }
